@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace SemanticVersioning.Tests
+namespace Vtex.SemanticVersioning.Tests
 {
     class ComparatorTests
     {

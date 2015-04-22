@@ -7,8 +7,8 @@
     <ProjectGuid>{9D6EDAE6-EEE1-4493-8863-C9F21A25A017}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SemanticVersioning</RootNamespace>
-    <AssemblyName>SemanticVersioning</AssemblyName>
+    <RootNamespace>Vtex.SemanticVersioning</RootNamespace>
+    <AssemblyName>Vtex.SemanticVersioning</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\SemanticVersioning.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Vtex.SemanticVersioning.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

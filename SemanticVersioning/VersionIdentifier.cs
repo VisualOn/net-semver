@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SemanticVersioning
+namespace Vtex.SemanticVersioning
 {
     /// <summary>
     /// Value of a version's segment.
@@ -49,7 +49,7 @@ namespace SemanticVersioning
         /// <see cref="T:System.Int32"/> then it will have an integer value. Otherwise it will have a string value.
         /// </summary>
         /// <param name="source">The string representation of the identifier</param>
-        /// <returns>The parsed <see cref="T:SemanticVersioning.VersionIdentifier"/></returns>
+        /// <returns>The parsed <see cref="T:Vtex.SemanticVersioning.VersionIdentifier"/></returns>
         public static VersionIdentifier Parse(string source)
         {
             int integerValue;
@@ -59,7 +59,7 @@ namespace SemanticVersioning
         }
 
         /// <summary>
-        /// Implicitly converts an <see cref="T:System.Int32"/> to a <see cref="T:SemanticVersioning.VersionIdentifier"/>.
+        /// Implicitly converts an <see cref="T:System.Int32"/> to a <see cref="T:Vtex.SemanticVersioning.VersionIdentifier"/>.
         /// </summary>
         /// <param name="integerValue">The identifer's integer value.</param>
         public static implicit operator VersionIdentifier(int integerValue)
@@ -68,7 +68,7 @@ namespace SemanticVersioning
         }
 
         /// <summary>
-        /// Implicitly converts an <see cref="T:System.String"/> to a <see cref="T:SemanticVersioning.VersionIdentifier"/>.
+        /// Implicitly converts an <see cref="T:System.String"/> to a <see cref="T:Vtex.SemanticVersioning.VersionIdentifier"/>.
         /// </summary>
         /// <param name="stringValue">The identifer's string value.</param>
         public static implicit operator VersionIdentifier(string stringValue)

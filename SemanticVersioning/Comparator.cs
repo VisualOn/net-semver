@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace SemanticVersioning
+namespace Vtex.SemanticVersioning
 {
     /// <summary>
     /// Can compare versions based on an operator.
@@ -30,7 +30,7 @@ namespace SemanticVersioning
 
         /// <summary>
         /// Converts the specified string representation of a comparator to its
-        /// <see cref="T:SemanticVersioning.Comparator"/> equivalent.
+        /// <see cref="T:Vtex.SemanticVersioning.Comparator"/> equivalent.
         /// </summary>
         /// <param name="source">The string representation of the comparator</param>
         /// <param name="loose">Whether to use loose mode or not</param>
@@ -47,12 +47,12 @@ namespace SemanticVersioning
 
         /// <summary>
         /// Tries to convert the specified string representation of a comparator to its
-        /// <see cref="T:SemanticVersioning.Comparator"/> equivalent. A return value indicates whether the conversion
+        /// <see cref="T:Vtex.SemanticVersioning.Comparator"/> equivalent. A return value indicates whether the conversion
         /// succeeded or failed.
         /// </summary>
         /// <param name="source">The string representation of the range</param>
         /// <param name="comparator">
-        /// When this method returns, contains a <see cref="T:SemanticVersioning.Comparator"/> if the conversion succeeded.
+        /// When this method returns, contains a <see cref="T:Vtex.SemanticVersioning.Comparator"/> if the conversion succeeded.
         /// </param>
         /// <param name="loose">Whether to use loose mode or not</param>
         /// <returns>true if <paramref name="source"/> was converted successfully; otherwise, false.</returns>
@@ -104,7 +104,7 @@ namespace SemanticVersioning
         /// <summary>
         /// Returns whether the given version satisfies this comparator.
         /// </summary>
-        /// <param name="version">The <see cref="T:SemanticVersioning.Version"/> to be matched</param>
+        /// <param name="version">The <see cref="T:Vtex.SemanticVersioning.Version"/> to be matched</param>
         /// <returns>true if the <paramref name="version"/> matches this comparator; false otherwise.</returns>
         public bool Matches(Version version)
         {

@@ -7,8 +7,8 @@
     <ProjectGuid>{858863AB-F5A7-4618-B27E-673FB610748D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SemanticVersioning.Tests</RootNamespace>
-    <AssemblyName>SemanticVersioning.Tests</AssemblyName>
+    <RootNamespace>Vtex.SemanticVersioning.Tests</RootNamespace>
+    <AssemblyName>Vtex.SemanticVersioning.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace SemanticVersioning
+namespace Vtex.SemanticVersioning
 {
     /// <summary>
     /// A range of semantic versions.
@@ -26,11 +26,11 @@ namespace SemanticVersioning
 
         /// <summary>
         /// Converts the specified string representation of a version range to its
-        /// <see cref="T:SemanticVersioning.Range"/> equivalent.
+        /// <see cref="T:Vtex.SemanticVersioning.Range"/> equivalent.
         /// </summary>
         /// <param name="source">The string representation of the range</param>
         /// <param name="loose">Whether to use loose mode or not</param>
-        /// <returns>The parsed <see cref="T:SemanticVersioning.Range"/></returns>
+        /// <returns>The parsed <see cref="T:Vtex.SemanticVersioning.Range"/></returns>
         /// <exception cref="T:System.FormatException"><paramref name="source"/> is not a valid SemVer Range</exception>
         public static Range Parse(string source, bool loose = false)
         {
@@ -43,12 +43,12 @@ namespace SemanticVersioning
 
         /// <summary>
         /// Tries to convert the specified string representation of a version range to its
-        /// <see cref="T:SemanticVersioning.Range"/> equivalent. A return value indicates whether the conversion
+        /// <see cref="T:Vtex.SemanticVersioning.Range"/> equivalent. A return value indicates whether the conversion
         /// succeeded or failed.
         /// </summary>
         /// <param name="source">The string representation of the range</param>
         /// <param name="range">
-        /// When this method returns, contains a <see cref="T:SemanticVersioning.Range"/> if the conversion succeeded.
+        /// When this method returns, contains a <see cref="T:Vtex.SemanticVersioning.Range"/> if the conversion succeeded.
         /// </param>
         /// <param name="loose">Whether to use loose mode or not</param>
         /// <returns>true if <paramref name="source"/> was converted successfully; otherwise, false.</returns>
@@ -72,7 +72,7 @@ namespace SemanticVersioning
         /// <summary>
         /// Returns whether the given version satisfies thing range.
         /// </summary>
-        /// <param name="version">The <see cref="T:SemanticVersioning.Version"/> to be matched</param>
+        /// <param name="version">The <see cref="T:Vtex.SemanticVersioning.Version"/> to be matched</param>
         /// <returns>true if the <paramref name="version"/> matches this range; false otherwise.</returns>
         public bool Matches(Version version)
         {

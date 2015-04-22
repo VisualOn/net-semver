@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace SemanticVersioning
+namespace Vtex.SemanticVersioning
 {
     internal static class Re
     {

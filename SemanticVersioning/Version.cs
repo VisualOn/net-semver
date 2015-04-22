@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace SemanticVersioning
+namespace Vtex.SemanticVersioning
 {
     /// <summary>
     /// Represents a semantic version
@@ -223,7 +223,7 @@ namespace SemanticVersioning
 
         /// <summary>
         /// Compares this version to another one and indicates whether it preceeds, succeeds or is the same as the
-        /// specified <see cref="T:SemanticVersioning.Version"/>.
+        /// specified <see cref="T:Vtex.SemanticVersioning.Version"/>.
         /// </summary>
         /// <param name="other">The version to compare with this instance</param>
         /// <returns>
@@ -277,10 +277,10 @@ namespace SemanticVersioning
         /// <summary>
         /// Increments this version's value by one in the given segment. When a given segment is incremented, all of the
         /// subsequent segments are reset to their default values, which are <c>0</c> for
-        /// <see cref="F:SemanticVersioning.VersionSegment.Major"/>,
-        /// <see cref="F:SemanticVersioning.VersionSegment.Minor"/> and
-        /// <see cref="F:SemanticVersioning.VersionSegment.Patch"/>, and none for
-        /// <see cref="F:SemanticVersioning.VersionSegment.Prerelease"/>.
+        /// <see cref="F:Vtex.SemanticVersioning.VersionSegment.Major"/>,
+        /// <see cref="F:Vtex.SemanticVersioning.VersionSegment.Minor"/> and
+        /// <see cref="F:Vtex.SemanticVersioning.VersionSegment.Patch"/>, and none for
+        /// <see cref="F:Vtex.SemanticVersioning.VersionSegment.Prerelease"/>.
         /// </summary>
         /// <param name="segment">The segment that should be incremented</param>
         public void Increment(VersionSegment segment)

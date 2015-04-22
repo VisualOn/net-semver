@@ -1,4 +1,4 @@
-﻿namespace SemanticVersioning
+﻿namespace Vtex.SemanticVersioning
 {
     internal static class ReSrc
     {

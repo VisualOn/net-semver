@@ -1,4 +1,4 @@
-﻿namespace SemanticVersioning
+﻿namespace Vtex.SemanticVersioning
 {
     /// <summary>
     /// Segments of a semantic version
