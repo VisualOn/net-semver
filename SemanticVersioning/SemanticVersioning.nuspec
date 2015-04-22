@@ -5,9 +5,9 @@
     <title>Semantic Versioning</title>
     <version>$version$</version>
     <authors>Rodrigo Dumont</authors>
-    <owners>Rodrigo Dumont</owners>
+    <owners>vtexlab</owners>
     <projectUrl>https://github.com/rdumont/net-semver</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A semantic version parser based on the SemVer 2.0.0 specs.</description>
+    <description>A port of NPM's semver library, which implements Semantic Versioning 2.0.</description>
   </metadata>
 </package>
