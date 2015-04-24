@@ -1,0 +1,8 @@
+version: CI-{build}
+build_script:
+- npm i gulp -g && npm i && gulp build pack
+deploy:
+- provider: Environment
+  name: NuGet
+  on:
+    APPVEYOR_REPO_TAG: true
