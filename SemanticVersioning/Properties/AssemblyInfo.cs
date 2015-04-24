@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SemanticVersioning")]
@@ -19,6 +19,6 @@ using System.Runtime.InteropServices;
 [assembly: Guid("e8016fe7-8ab6-4f92-8a5b-51dcd64cb023")]
 
 // This project follows the SemVer 2.0.0 guidelines (http://semver.org/spec/v2.0.0.html)
-[assembly: AssemblyVersion("0.0.0")]
-[assembly: AssemblyFileVersion("0.0.0")]
-[assembly: AssemblyInformationalVersion("0.0.0")]
+[assembly: AssemblyVersion("0.0.1")]
+[assembly: AssemblyFileVersion("0.0.1")]
+[assembly: AssemblyInformationalVersion("0.0.1-beta")]
