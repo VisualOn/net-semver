@@ -19,12 +19,21 @@ newTag = undefined
 
 gulp.task 'default', ['build', 'test']
 
-gulp.task 'restore', shell.task ['nuget restore']
+gulp.task 'restore', ->
+  gulp.src '**/*.sln'
+    .pipe msbuild
+      toolsVersion: 15.0
+      targets: ['Restore']
+      logCommand: true
+      errorOnFail: true
+      stdout: true
+      verbosity: 'minimal'
+      configuration: configuration
 
 gulp.task 'clean', ->
   gulp.src '**/*.sln'
     .pipe msbuild
-      toolsVersion: 12.0
+      toolsVersion: 15.0
       targets: ['Clean']
       logCommand: true
       errorOnFail: true
@@ -35,7 +44,7 @@ gulp.task 'clean', ->
 gulp.task 'build', ['restore'], ->
   gulp.src '**/*.sln'
     .pipe msbuild
-      toolsVersion: 12.0
+      toolsVersion: 15.0
       targets: ['Clean', 'Build']
       logCommand: true
       errorOnFail: true
@@ -53,11 +62,15 @@ gulp.task 'bump', ['bump-commit'], ->
     if err then throw err
 
 gulp.task 'pack', ['build'], ->
-  version = getCurrentVersion()
-  gulp.src nuspecPath, read: false
-    .pipe shell ["nuget pack <%= f(file.path) %> -version #{version} -p Configuration=#{configuration} -symbols"],
-      templateData:
-        f: (s) -> s.replace '\\', '/'
+  gulp.src '**/*.sln'
+    .pipe msbuild
+      toolsVersion: 15.0
+      targets: ['Pack']
+      logCommand: true
+      errorOnFail: true
+      stdout: true
+      verbosity: 'minimal'
+      configuration: configuration
 
 gulp.task 'push', ->
   version = getCurrentVersion()
