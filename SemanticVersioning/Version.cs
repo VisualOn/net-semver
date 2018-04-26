@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -368,7 +368,7 @@ namespace Vtex.SemanticVersioning
         {
             _version = _major + "." + _minor + "." + _patch;
             if (_prerelease.Length > 0)
-                _version += "-" + string.Join(".", _prerelease.Cast<object>());
+                _version += "-" + string.Join(".", _prerelease.Select(p => p.ToString()).ToArray());
         }
 
         #region SemVer Operator Overloads
@@ -469,7 +469,7 @@ namespace Vtex.SemanticVersioning
         {
             if (ReferenceEquals(v1, null))
                 throw new ArgumentNullException("v1", "Cannot compare null versions");
-            if (string.IsNullOrWhiteSpace(v2))
+            if (string.IsNullOrEmpty(v2?.Trim()))
                 throw new ArgumentNullException("v2", "Cannot compare null versions");
             return v1.CompareTo(Parse(v2, v1._loose)) < 0;
         }
@@ -484,7 +484,7 @@ namespace Vtex.SemanticVersioning
         {
             if (ReferenceEquals(v1, null))
                 throw new ArgumentNullException("v1", "Cannot compare null versions");
-            if (string.IsNullOrWhiteSpace(v2))
+            if (string.IsNullOrEmpty(v2?.Trim()))
                 throw new ArgumentNullException("v2", "Cannot compare null versions");
             return v1.CompareTo(Parse(v2, v1._loose)) > 0;
         }
@@ -547,7 +547,7 @@ namespace Vtex.SemanticVersioning
         /// <exception cref="T:System.FormatException"><paramref name="v1"/> is not a valid version</exception>
         public static bool operator <(string v1, Version v2)
         {
-            if (string.IsNullOrWhiteSpace(v1))
+            if (string.IsNullOrEmpty(v1?.Trim()))
                 throw new ArgumentNullException("v2", "Cannot compare null versions");
             if (ReferenceEquals(v2, null))
                 throw new ArgumentNullException("v1", "Cannot compare null versions");
@@ -562,7 +562,7 @@ namespace Vtex.SemanticVersioning
         /// <exception cref="T:System.FormatException"><paramref name="v1"/> is not a valid version</exception>
         public static bool operator >(string v1, Version v2)
         {
-            if (string.IsNullOrWhiteSpace(v1))
+            if (string.IsNullOrEmpty(v1?.Trim()))
                 throw new ArgumentNullException("v2", "Cannot compare null versions");
             if (ReferenceEquals(v2, null))
                 throw new ArgumentNullException("v1", "Cannot compare null versions");

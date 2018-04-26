@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -21,7 +21,7 @@ namespace Vtex.SemanticVersioning
             _source = source;
             _loose = loose;
 
-            _source = string.Join("||", _set.Select(comps => string.Join(" ", comps.Select(c => c.ToString()))));
+            _source = string.Join("||", _set.Select(comps => string.Join(" ", comps.Select(c => c.ToString()).ToArray())).ToArray());
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Vtex.SemanticVersioning
             // ready to be split into comparators.
 
             var compRegex = loose ? Re.ComparatorLoose : Re.Comparator;
-            var comps = Regex.Split(string.Join(" ", range.Split(' ').Select(comp => TrimComparator(comp, loose))),
+            var comps = Regex.Split(string.Join(" ", range.Split(' ').Select(comp => TrimComparator(comp, loose)).ToArray()),
                 "\\s+").Select(comp => new { Source = comp, Match = compRegex.Match(comp) });
             if (loose)
             {
@@ -144,7 +144,7 @@ namespace Vtex.SemanticVersioning
         // ^1.2.0 --> >=1.2.0 <2.0.0
         private static string ReplaceCarets(string comp, bool loose)
         {
-            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceCaret(c, loose)));
+            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceCaret(c, loose)).ToArray());
         }
 
         private static string ReplaceCaret(string comp, bool loose)
@@ -169,7 +169,7 @@ namespace Vtex.SemanticVersioning
                     else
                         ret = ">=" + major + "." + minor + ".0-0 <" + Inc(major) + ".0.0-0";
                 }
-                else if (!string.IsNullOrWhiteSpace(prerelease))
+                else if (!string.IsNullOrEmpty(prerelease?.Trim()))
                 {
                     if (prerelease[0] != '-')
                         prerelease = "-" + prerelease;
@@ -216,7 +216,7 @@ namespace Vtex.SemanticVersioning
         // ~1.2.0, ~>1.2.0 --> >=1.2.0 <1.3.0
         private static string ReplaceTildes(string comp, bool loose)
         {
-            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceTilde(c, loose)));
+            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceTilde(c, loose)).ToArray());
         }
 
         private static string ReplaceTilde(string comp, bool loose)
@@ -237,7 +237,7 @@ namespace Vtex.SemanticVersioning
                 else if (IsX(patch))
                     // ~1.2 == >=1.2.0- <1.3.0-
                     ret = ">=" + major + "." + minor + ".0-0 <" + major + "." + Inc(minor) + ".0-0";
-                else if (!string.IsNullOrWhiteSpace(prerelease))
+                else if (!string.IsNullOrEmpty(prerelease?.Trim()))
                 {
                     if (prerelease[0] != '-')
                         prerelease = "-" + prerelease;
@@ -257,7 +257,7 @@ namespace Vtex.SemanticVersioning
 
         private static string ReplaceXRanges(string comp, bool loose)
         {
-            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceXRange(c, loose)));
+            return string.Join(" ", Regex.Split(comp, "\\s+").Select(c => ReplaceXRange(c, loose)).ToArray());
         }
 
         private static string ReplaceXRange(string comp, bool loose)
@@ -281,7 +281,7 @@ namespace Vtex.SemanticVersioning
 
                 var result = match.Groups[0].Value;
 
-                if (!string.IsNullOrWhiteSpace(gtlt) && anyX)
+                if (!string.IsNullOrEmpty(gtlt?.Trim()) && anyX)
                 {
                     // replace X with 0, and then append the -0 min-prerelease
                     if (xMajor)
@@ -368,7 +368,7 @@ namespace Vtex.SemanticVersioning
                 to = "<" + Inc(toMajor) + ".0.0-0";
             else if (IsX(toPatch))
                 to = "<" + toMajor + "." + Inc(toMinor) + ".0-0";
-            else if (!string.IsNullOrWhiteSpace(toPrerelease))
+            else if (!string.IsNullOrEmpty(toPrerelease?.Trim()))
                 to = "<=" + toMajor + "." + toMinor + "." + toPatch + "-" + toPrerelease;
             else
                 to = "<=" + to;
@@ -378,17 +378,17 @@ namespace Vtex.SemanticVersioning
 
         private static int Inc(string id)
         {
-            return string.IsNullOrWhiteSpace(id) ? 1 : int.Parse(id) + 1;
+            return string.IsNullOrEmpty(id?.Trim()) ? 1 : int.Parse(id) + 1;
         }
 
         private static bool Truthy(string id)
         {
-            return id != null && !string.IsNullOrWhiteSpace(id) && id.Any(c => c != '0');
+            return id != null && !string.IsNullOrEmpty(id?.Trim()) && id.Any(c => c != '0');
         }
 
         private static bool IsX(string id)
         {
-            return string.IsNullOrWhiteSpace(id) || id.ToLowerInvariant() == "x" || id == "*";
+            return string.IsNullOrEmpty(id?.Trim()) || id.ToLowerInvariant() == "x" || id == "*";
         }
     }
 }
