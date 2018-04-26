@@ -4,7 +4,7 @@
     <PropertyGroup>
         <RootNamespace>Vtex.SemanticVersioning.Tests</RootNamespace>
         <AssemblyName>Vtex.SemanticVersioning.Tests</AssemblyName>
-        <TargetFrameworks>net45;net35</TargetFrameworks>
+        <TargetFrameworks>net45;netcoreapp2.0;net35</TargetFrameworks>
         <IsPackable>false</IsPackable>
         <OutputType>Exe</OutputType>
     </PropertyGroup>

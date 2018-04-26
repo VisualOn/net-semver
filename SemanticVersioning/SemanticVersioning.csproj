@@ -21,7 +21,7 @@
         <AssemblyName>Vtex.SemanticVersioning</AssemblyName>
         <PackageId>SemanticVersioning</PackageId>
 
-        <TargetFrameworks>net45;net35</TargetFrameworks>
+        <TargetFrameworks>net45;netstandard2.0;net35</TargetFrameworks>
 
         <!-- Add pdb's to package -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
