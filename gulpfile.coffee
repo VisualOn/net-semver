@@ -53,9 +53,8 @@ gulp.task 'build', ['restore'], ->
       configuration: configuration
 
 gulp.task 'test', ->
-  gulp.src ['**/bin/**/*.Tests.dll'], read: false
-    .pipe nunit
-      executable: nunitPath
+  gulp.src ['**/bin/**/*.Tests.exe'], read: false
+    .pipe shell ["<%= file.path %>"]
 
 gulp.task 'bump', ['bump-commit'], ->
   git.tag newTag, "Release #{newTag}", (err) ->
