@@ -53,8 +53,8 @@ gulp.task 'build', ['restore'], ->
       configuration: configuration
 
 gulp.task 'test', ->
-  gulp.src ['**/bin/**/*.Tests.exe'], read: false
-    .pipe shell ["<%= file.path %>"]
+  gulp.src '**/*.Tests.csproj'
+    .pipe shell ["dotnet test --no-build --no-restore -c #{configuration} <%= file.path %>"]
 
 gulp.task 'bump', ['bump-commit'], ->
   git.tag newTag, "Release #{newTag}", (err) ->

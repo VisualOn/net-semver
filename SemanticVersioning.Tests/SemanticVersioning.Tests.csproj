@@ -6,11 +6,12 @@
         <AssemblyName>Vtex.SemanticVersioning.Tests</AssemblyName>
         <TargetFrameworks>net45;netcoreapp2.0;net35</TargetFrameworks>
         <IsPackable>false</IsPackable>
-        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="NUnitLite" Version="3.10.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+        <PackageReference Include="NUnit" Version="3.10.1" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
     </ItemGroup>
 
     <ItemGroup>
