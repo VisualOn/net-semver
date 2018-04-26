@@ -2,12 +2,12 @@
   "dependencies": {
     "coffee-script": "^1.9.2",
     "gulp": "^3.8.11",
-    "gulp-git": "^1.2.1",
-    "gulp-msbuild": "^0.2.8",
-    "gulp-nunit-runner": "^0.4.1",
-    "gulp-replace": "^0.5.3",
-    "gulp-shell": "^0.4.1",
-    "semver": "^4.3.3",
-    "yargs": "^3.7.2"
+    "gulp-git": "^2.5.2",
+    "gulp-msbuild": "^0.5.4",
+    "gulp-nunit-runner": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-shell": "^0.6.5",
+    "semver": "^5.5.0",
+    "yargs": "^11.0.0"
   }
 }
